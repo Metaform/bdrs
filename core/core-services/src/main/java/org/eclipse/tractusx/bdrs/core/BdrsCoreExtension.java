@@ -36,13 +36,10 @@ import org.eclipse.tractusx.bdrs.core.health.HealthCheckServiceConfiguration;
 import org.eclipse.tractusx.bdrs.core.health.HealthCheckServiceImpl;
 import org.eclipse.tractusx.bdrs.core.store.InMemoryDidEntryStore;
 import org.eclipse.tractusx.bdrs.core.vault.InMemoryVault;
-import org.eclipse.tractusx.bdrs.spi.store.DidEntry;
 import org.eclipse.tractusx.bdrs.spi.store.DidEntryStore;
 
 import java.time.Duration;
-import java.util.stream.IntStream;
 
-import static java.util.UUID.randomUUID;
 import static org.eclipse.tractusx.bdrs.core.BdrsCoreExtension.NAME;
 
 /**
@@ -105,8 +102,8 @@ public class BdrsCoreExtension implements ServiceExtension {
     @Provider(isDefault = true)
     public DidEntryStore defaultDidEntryStore() {
         var store = new InMemoryDidEntryStore(typeManager.getMapper());
-        var stream = IntStream.range(0, 20000).mapToObj((i) -> new DidEntry(randomUUID().toString(), randomUUID().toString()));
-        store.save(stream);
+        // var stream = IntStream.range(0, 20000).mapToObj((i) -> new DidEntry(randomUUID().toString(), randomUUID().toString()));
+        // store.save(stream);
         return store;
     }
 
