@@ -2,7 +2,11 @@
 
 Eclipse Tractus-X product(s) installed within the image:
 
-## Tractus-X EDC Control Plane
+## BDRS
+
+Launch:
+
+> docker run -p 8181:8181 -p 8282:8282 -e EDC_API_AUTH_KEY="1234" server
 
 - Project license: [Apache License, Version 2.0](https://github.com/eclipse-tractusx/tractusx-edc/blob/main/LICENSE)
 
